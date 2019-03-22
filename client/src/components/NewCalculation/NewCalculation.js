@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import styles from './NewCalculation.module.css';
+import * as actions from '../../actions';
 
 // eslint-disable-next-line
-class Navbar extends Component {
+class NewCalculation extends Component {
   state = {
     label: '',
     firstNum: '',
@@ -19,6 +19,18 @@ class Navbar extends Component {
 
     this.setState({
       [name]: value
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { addCalculation } = this.props;
+    addCalculation(this.state);
+    this.setState({
+      label: '',
+      firstNum: '',
+      secondNum: '',
+      operation: ''
     });
   };
 
@@ -70,26 +82,25 @@ class Navbar extends Component {
               placeholder="Second Operand"
               onChange={this.handleChange}
             />
-            <button
-              className={styles.button}
-              type="submit"
-              onClick={this.handleSubmit}
-            >
-              Calculate
-            </button>
           </form>
+          <button
+            className={styles.button}
+            type="submit"
+            onClick={this.handleSubmit}
+          >
+            Calculate
+          </button>
         </div>
       </div>
     );
   }
 }
 
-Navbar.propTypes = {
-  name: PropTypes.string.isRequired
+NewCalculation.propTypes = {
+  addCalculation: PropTypes.func.isRequired
 };
 
-function mapStateToProps({ name }) {
-  return { name };
-}
-
-export default connect(mapStateToProps)(Navbar);
+export default connect(
+  null,
+  actions
+)(NewCalculation);

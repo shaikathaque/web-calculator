@@ -8,11 +8,15 @@ import './index.css';
 import App from './components/App';
 import reducers from './reducers';
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const store = createStore(
+  reducers,
+  { calculations: [] },
+  applyMiddleware(reduxThunk)
+);
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

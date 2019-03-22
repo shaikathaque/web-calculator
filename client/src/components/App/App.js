@@ -10,14 +10,15 @@ import Navbar from '../Navbar';
 
 import A from '../A';
 import B from '../B';
+import PreviousCalculations from '../PreviousCalculations';
 import NewCalculation from '../NewCalculation';
 
 import './App.css';
 
 class App extends Component {
   componentDidMount() {
-    const { fetchName } = this.props;
-    fetchName('Shaikat');
+    // const { fetchName } = this.props;
+    // fetchName('Shaikat');
   }
 
   render() {
@@ -25,9 +26,9 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <Navbar />
+          <PreviousCalculations />
           <Switch>
             <Route exact path="/" component={NewCalculation} />
-            {/* <Route exact path="/b" component={B} /> */}
             <Route component={NewCalculation} />
           </Switch>
         </BrowserRouter>
@@ -37,7 +38,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  fetchName: PropTypes.func.isRequired
+  fetchCalculations: PropTypes.func.isRequired
 };
 
 export default connect(

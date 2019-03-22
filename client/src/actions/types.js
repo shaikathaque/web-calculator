@@ -1,2 +1,2 @@
-export const FETCH_NAME = 'fetch_name';
-export const FETCH_SOMETHING_ELSE = 'fetch_something_else';
+export const ADD_CALCULATION = 'add_calculation';
+export const FETCH_CALCULATIONS = 'fetch_something_else';

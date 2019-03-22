@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import nameReducer from './nameReducer';
+import calculationReducer from './calculationReducer';
 
 export default combineReducers({
-  name: nameReducer,
+  calculations: calculationReducer
 });
