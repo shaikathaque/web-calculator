@@ -37,7 +37,11 @@ class PreviousCalculations extends Component {
         <p>Here are your previous calculations</p>
         {calculations.map(calculation => (
           <div className={styles.container}>
-            <div className={styles.item}>{calculation.label}</div>
+            <div className={styles.item}>
+Label:
+{' '}
+{calculation.label}
+</div>
             <div className={styles.item}>{calculation.firstNum}</div>
             <div className={styles.item}>{calculation.operation}</div>
             <div className={styles.item}>{calculation.secondNum}</div>
