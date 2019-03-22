@@ -10,6 +10,7 @@ import Navbar from '../Navbar';
 
 import A from '../A';
 import B from '../B';
+import NewCalculation from '../NewCalculation';
 
 import './App.css';
 
@@ -25,9 +26,9 @@ class App extends Component {
         <BrowserRouter>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={A} />
-            <Route exact path="/b" component={B} />
-            <Route component={A} />
+            <Route exact path="/" component={NewCalculation} />
+            {/* <Route exact path="/b" component={B} /> */}
+            <Route component={NewCalculation} />
           </Switch>
         </BrowserRouter>
       </div>

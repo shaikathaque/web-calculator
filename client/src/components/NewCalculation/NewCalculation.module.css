@@ -1,0 +1,11 @@
+.formContainer {
+  /* display: flex; */
+}
+
+.label {
+  margin-right: 5%;
+}
+
+button {
+  margin-left: 5%;
+}
