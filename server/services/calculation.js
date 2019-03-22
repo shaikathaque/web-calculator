@@ -15,9 +15,10 @@ const getCalculations = async () => {
   return calculations;
 };
 
-// check if valid calculation
+// check if valid calculation submitted by user
 const isCalculationValid = () => true;
 
+// TODO: handle divide by 0 errors
 const performCalculation = (expression) => {
   console.log(expression);
   const { operation, firstNum, secondNum } = expression;
