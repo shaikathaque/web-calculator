@@ -1,7 +1,7 @@
 const { performCalculation } = require('../utils/calculation');
 
 describe('Hello Service', () => {
-  test('Returns Hello World', () => {
+  test('Adds to integers correctly', () => {
     const obj = {
       firstNum: 3,
       secondNum: 3,
