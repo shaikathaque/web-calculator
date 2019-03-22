@@ -3,13 +3,15 @@ const morgan = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
+const bodyParser = require("body-parser");
 
 require("./models/Calculation");
 
-const mongoUri = keys.mongoURI || "mongodb://localhost:27017/test";
+const mongoUri = keys.mongoURI || "mongodb://localhost:27017/web-calculator";
 mongoose.connect(mongoUri, { useNewUrlParser: true });
 
 const app = express();
+app.use(bodyParser.json());
 app.use(morgan("dev"));
 
 // in production, serve build when user requests path '/'.

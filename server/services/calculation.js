@@ -1,17 +1,23 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const User = mongoose.model("calculations");
+const Calculation = mongoose.model('calculations');
 
-const getHelloWorld = name => `Hello ${name}`;
+const addCalculation = async (calculation) => {
+  const calculationResult = Object.assign({}, calculation);
+  calculationResult.result = performCalculation();
+  const result = await new Calculation(calculationResult).save();
+  return result;
+};
 
-const addCalculation = async name => {
-  // const user = await new User({ id: 'b', name }).save();
-  // return user;
+const getCalculations = async () => {
+  const calculations = await Calculation.find();
+  console.log(14, calculations);
+  return calculations;
 };
 
 // check if valid calculation
-const isCalculationValid = () => {
-  return true;
-};
+const isCalculationValid = () => true;
 
-module.exports = { addCalculation, isCalculationValid };
+const performCalculation = () => 3;
+
+module.exports = { addCalculation, isCalculationValid, getCalculations };
