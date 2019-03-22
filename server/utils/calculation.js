@@ -1,23 +1,3 @@
-const mongoose = require('mongoose');
-
-const Calculation = mongoose.model('calculations');
-
-const addCalculation = async (calculation) => {
-  const calculationResult = Object.assign({}, calculation);
-  calculationResult.result = performCalculation(calculation);
-  const result = await new Calculation(calculationResult).save();
-  return result;
-};
-
-const getCalculations = async () => {
-  const calculations = await Calculation.find();
-  console.log(14, calculations);
-  return calculations;
-};
-
-// check if valid calculation
-const isCalculationValid = () => true;
-
 const performCalculation = (expression) => {
   console.log(expression);
   const { operation, firstNum, secondNum } = expression;
@@ -51,9 +31,4 @@ const performCalculation = (expression) => {
   }
 };
 
-module.exports = {
-  addCalculation,
-  isCalculationValid,
-  getCalculations,
-  performCalculation
-};
+module.exports = { performCalculation };
